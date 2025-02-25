@@ -17,9 +17,11 @@ public class NecharDisplayFilter extends PatternItemFilter {
         super(pattern);
         this.searchText = searchText;
     }
+    
     private String deleteComma(String str){
         return str.replaceAll(",(?=[0,9])","");
     }
+    
     @Override
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
