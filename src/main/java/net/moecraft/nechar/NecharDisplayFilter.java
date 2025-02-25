@@ -19,7 +19,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
     }
 
     private String deleteComma(String str) {
-        return str.replaceAll(",(?=[0,9])", "");
+        return str.replaceAll(",", "");
     }
 
     @Override
