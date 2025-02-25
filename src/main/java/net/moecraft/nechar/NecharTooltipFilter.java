@@ -1,11 +1,8 @@
 package net.moecraft.nechar;
 
-import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
-
+import static net.sst03.nechar.NecharUtils.contain;
 import java.util.regex.Pattern;
-
 import net.minecraft.item.ItemStack;
-
 import codechicken.nei.search.TooltipFilter;
 
 public class NecharTooltipFilter extends TooltipFilter {
@@ -17,17 +14,9 @@ public class NecharTooltipFilter extends TooltipFilter {
         this.searchText = searchText;
     }
 
-    private String deleteComma(String str) {
-        return str.replaceAll("(?<=[0-9]),(?=[0-9])", "");
-    }
-
     @Override
     public boolean matches(ItemStack itemStack) {
-        String tooltip = getSearchTooltip(itemStack);
-        if (this.searchText.contains(",")) {
-            return CONTEXT.contains(tooltip, this.searchText) || super.matches(itemStack);
-        }
-        return CONTEXT.contains(deleteComma(tooltip), deleteComma(this.searchText))
+        return contain(getSearchTooltip(itemStack), this.searchText)
             || super.matches(itemStack);
     }
 

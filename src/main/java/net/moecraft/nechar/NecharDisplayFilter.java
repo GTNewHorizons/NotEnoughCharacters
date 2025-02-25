@@ -1,12 +1,9 @@
 package net.moecraft.nechar;
 
-import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
-
+import static net.sst03.nechar.NecharUtils.contain;
 import java.util.regex.Pattern;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-
 import codechicken.nei.ItemList.PatternItemFilter;
 
 public class NecharDisplayFilter extends PatternItemFilter {
@@ -18,15 +15,11 @@ public class NecharDisplayFilter extends PatternItemFilter {
         this.searchText = searchText;
     }
 
-    private String deleteComma(String str) {
-        return str.replaceAll(",", "");
-    }
-
     @Override
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
+        if (!displayName.isEmpty() && contain(displayName, this.searchText)) {
             return true;
         }
 
@@ -35,12 +28,12 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (!displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
+            if (!displayName.isEmpty() && contain(displayName, this.searchText)) {
                 return true;
             }
         }
 
         return super.matches(itemStack);
     }
-
+    
 }
