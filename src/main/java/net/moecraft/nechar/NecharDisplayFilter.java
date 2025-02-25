@@ -38,4 +38,5 @@ public class NecharDisplayFilter extends PatternItemFilter {
 
         return super.matches(itemStack);
     }
+
 }
