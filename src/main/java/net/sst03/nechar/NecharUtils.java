@@ -8,15 +8,15 @@ public class NecharUtils {
         return str.replaceAll("(?<=[0-9]),(?=[0-9])", "");
     }
 
-    private static String deleteUnlegalChars(String str) {
+    private static String deleteExtraChars(String str) {
         return str.replaceAll("\ud872","").replaceAll("\ud86d","");
     }
 
     public static boolean contain(String searchText,String sourseText) {
 
         if (!(searchText.contains("\ud872") || searchText.contains("\ud86d"))) {
-            searchText = deleteUnlegalChars(searchText);
-            sourseText = deleteUnlegalChars(sourseText);
+            searchText = deleteExtraChars(searchText);
+            sourseText = deleteExtraChars(sourseText);
         }
 
         if (!searchText.contains(",")) {

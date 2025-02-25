@@ -1,9 +1,12 @@
 package net.moecraft.nechar;
 
 import static net.sst03.nechar.NecharUtils.contain;
+
 import java.util.regex.Pattern;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+
 import codechicken.nei.ItemList.PatternItemFilter;
 
 public class NecharDisplayFilter extends PatternItemFilter {
@@ -35,5 +38,5 @@ public class NecharDisplayFilter extends PatternItemFilter {
 
         return super.matches(itemStack);
     }
-    
+
 }
