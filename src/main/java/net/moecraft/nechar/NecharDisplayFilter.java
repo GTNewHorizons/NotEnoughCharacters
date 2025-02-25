@@ -18,8 +18,8 @@ public class NecharDisplayFilter extends PatternItemFilter {
         this.searchText = searchText;
     }
     
-    private String deleteComma(String str){
-        return str.replaceAll(",(?=[0,9])","");
+    private String deleteComma(String str) {
+        return str.replaceAll(",(?=[0,9])", "");
     }
     
     @Override
