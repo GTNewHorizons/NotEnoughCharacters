@@ -1,6 +1,6 @@
 package net.moecraft.nechar;
 
-import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
+import static net.sst03.nechar.NecharUtils.contain;
 
 import java.util.regex.Pattern;
 
@@ -22,7 +22,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() && CONTEXT.contains(displayName, this.searchText)) {
+        if (!displayName.isEmpty() && contain(displayName, this.searchText)) {
             return true;
         }
 
@@ -31,12 +31,11 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (displayName.isEmpty() && CONTEXT.contains(displayName, this.searchText)) {
+            if (!displayName.isEmpty() && contain(displayName, this.searchText)) {
                 return true;
             }
         }
 
         return super.matches(itemStack);
     }
-
 }

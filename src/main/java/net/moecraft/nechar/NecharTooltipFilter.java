@@ -1,6 +1,6 @@
 package net.moecraft.nechar;
 
-import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
+import static net.sst03.nechar.NecharUtils.contain;
 
 import java.util.regex.Pattern;
 
@@ -19,7 +19,7 @@ public class NecharTooltipFilter extends TooltipFilter {
 
     @Override
     public boolean matches(ItemStack itemStack) {
-        return CONTEXT.contains(getSearchTooltip(itemStack), this.searchText) || super.matches(itemStack);
+        return contain(getSearchTooltip(itemStack), this.searchText) || super.matches(itemStack);
     }
 
 }
