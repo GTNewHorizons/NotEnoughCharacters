@@ -22,7 +22,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() && CONTEXT.contains(displayName, this.searchText)) {
+        if (!displayName.isEmpty() && CONTEXT.contains(displayName.replaceAll(",(?=[0,9])",""), this.searchText.replaceAll(",(?=[0,9])",""))) {
             return true;
         }
 
@@ -31,7 +31,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (displayName.isEmpty() && CONTEXT.contains(displayName, this.searchText)) {
+            if (displayName.isEmpty() && CONTEXT.contains(displayName.replaceAll(",(?=[0,9])",""), this.searchText.replaceAll(",(?=[0,9])",""))) {
                 return true;
             }
         }
