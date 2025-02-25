@@ -18,12 +18,16 @@ public class NecharTooltipFilter extends TooltipFilter {
     }
 
     private String deleteComma(String str) {
-        return str.replaceAll(",(?=[0,9])", "");
+        return str.replaceAll("(?<=[0-9]),(?=[0-9])", "");
     }
 
     @Override
     public boolean matches(ItemStack itemStack) {
-        return CONTEXT.contains(deleteComma(getSearchTooltip(itemStack)), deleteComma(this.searchText))
+        String tooltip = getSearchTooltip(itemStack);
+        if (this.searchText.contains(",")) {
+            return CONTEXT.contains(tooltip, this.searchText) || super.matches(itemStack);
+        }
+        return CONTEXT.contains(deleteComma(tooltip), deleteComma(this.searchText))
             || super.matches(itemStack);
     }
 
