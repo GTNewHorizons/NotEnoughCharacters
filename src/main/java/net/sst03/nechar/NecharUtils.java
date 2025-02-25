@@ -12,7 +12,7 @@ public class NecharUtils {
         return str.replaceAll("\ud872","").replaceAll("\ud86d","");
     }
 
-    public static String contain(String searchText,String sourseText) {
+    public static boolean contain(String searchText,String sourseText) {
 
         if (!(searchText.contains("\ud872") || searchText.contains("\ud86d"))) {
             searchText = deleteUnlegalChars(searchText);
