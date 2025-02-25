@@ -51,19 +51,19 @@ public class NotEnoughCharacters {
             feed.accept('\udf76', new String[] { "hei1", "jinhei" });
             // 钅麦
             feed.accept('\u9fcf', new String[] { "mai4", "jinmai" });
-            //feed.accept('\u9fcf', new String[] { "mai4", "jinmai" });
+            // feed.accept('\u9fcf', new String[] { "mai4", "jinmai" });
             // 钅达
             feed.accept('\ue906', new String[] { "da2", "jinda" });
             feed.accept('\udffc', new String[] { "da2", "jinda" });
             // 钅仑
             feed.accept('\ue907', new String[] { "lun2", "jinlun" });
             feed.accept('\udf2d', new String[] { "lun2", "jinlun" });
-            // // 钅哥
+            // 钅哥
             feed.accept('\u9fd4', new String[] { "ge1", "jinge" });
-            //feed.accept('\u9fd4', new String[] { "ge1", "jinge" });
+            // feed.accept('\u9fd4', new String[] { "ge1", "jinge" });
             // 钅尔
             feed.accept('\u9fed', new String[] { "ni3", "jiner" });
-            //feed.accept('\u9fed', new String[] { "ni3", "jiner" });
+            // feed.accept('\u9fed', new String[] { "ni3", "jiner" });
             // 钅夫
             feed.accept('\ue90a', new String[] { "fu1", "jinfu" });
             feed.accept('\udce7', new String[] { "fu1", "jinfu" });
@@ -72,10 +72,10 @@ public class NotEnoughCharacters {
             feed.accept('\udff7', new String[] { "li4", "jinli" });
             // 石田
             feed.accept('\u9fec', new String[] { "tian2", "shitian" });
-            //feed.accept('\u9fec', new String[] { "tian2", "shitian" });
+            // feed.accept('\u9fec', new String[] { "tian2", "shitian" });
             // 气奥
             feed.accept('\u9feb', new String[] { "ao4", "qiao", "aoqi" });
-            //feed.accept('\u9feb', new String[] { "ao4", "qiao", "aoqi" });
+            // feed.accept('\u9feb', new String[] { "ao4", "qiao", "aoqi" });
         }
     }
 

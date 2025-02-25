@@ -9,7 +9,8 @@ public class NecharUtils {
     }
 
     private static String deleteExtraChars(String str) {
-        return str.replaceAll("\ud872","").replaceAll("\ud86d","");
+        return str.replaceAll("\ud872","")
+            .replaceAll("\ud86d","");
     }
 
     public static boolean contain(String searchText,String sourseText) {
