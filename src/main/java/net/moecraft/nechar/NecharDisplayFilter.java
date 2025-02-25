@@ -36,8 +36,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (!displayName.isEmpty() 
-                && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
+            if (!displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
                 return true;
             }
         }
