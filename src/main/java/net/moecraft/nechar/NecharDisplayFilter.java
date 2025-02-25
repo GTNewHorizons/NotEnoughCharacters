@@ -26,8 +26,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() 
-            && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
+        if (!displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
             return true;
         }
 
