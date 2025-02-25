@@ -16,14 +16,15 @@ public class NecharTooltipFilter extends TooltipFilter {
         super(pattern);
         this.searchText = searchText;
     }
-    
+
     private String deleteComma(String str) {
         return str.replaceAll(",(?=[0,9])", "");
     }
-    
+
     @Override
     public boolean matches(ItemStack itemStack) {
-        return CONTEXT.contains(deleteComma(getSearchTooltip(itemStack)), deleteComma(this.searchText)) 
+        return CONTEXT.contains(
+            deleteComma(getSearchTooltip(itemStack)), deleteComma(this.searchText))
             || super.matches(itemStack);
     }
 
