@@ -27,4 +27,5 @@ public class NecharUtils {
 
         return CONTEXT.contains(sourseText, searchText);
     }
+
 }
