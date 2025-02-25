@@ -17,12 +17,14 @@ public class NecharDisplayFilter extends PatternItemFilter {
         super(pattern);
         this.searchText = searchText;
     }
-
+    private String deleteComma(String str){
+        return str.replaceAll(",(?=[0,9])","");
+    }
     @Override
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() && CONTEXT.contains(displayName.replaceAll(",(?=[0,9])",""), this.searchText.replaceAll(",(?=[0,9])",""))) {
+        if (!displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
             return true;
         }
 
@@ -31,7 +33,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (displayName.isEmpty() && CONTEXT.contains(displayName.replaceAll(",(?=[0,9])",""), this.searchText.replaceAll(",(?=[0,9])",""))) {
+            if (displayName.isEmpty() && CONTEXT.contains(deleteComma(displayName), deleteComma(this.searchText))) {
                 return true;
             }
         }
