@@ -19,7 +19,7 @@ public class NecharTooltipFilter extends TooltipFilter {
 
     @Override
     public boolean matches(ItemStack itemStack) {
-        return CONTEXT.contains(getSearchTooltip(itemStack), this.searchText) || super.matches(itemStack);
+        return CONTEXT.contains(getSearchTooltip(itemStack).replaceAll(",(?=[0,9])",""), this.searchText.replaceAll(",(?=[0,9])","")) || super.matches(itemStack);
     }
 
 }
