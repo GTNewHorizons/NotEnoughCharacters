@@ -21,7 +21,7 @@ public class NecharTooltipFilter extends TooltipFilter {
     }
     @Override
     public boolean matches(ItemStack itemStack) {
-        return CONTEXT.contains(deleteComma(getSearchTooltip(itemStack)), deleteComma(this.searchText) || super.matches(itemStack);
+        return CONTEXT.contains(deleteComma(getSearchTooltip(itemStack)), deleteComma(this.searchText)) || super.matches(itemStack);
     }
 
 }
