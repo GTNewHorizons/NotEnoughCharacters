@@ -1,6 +1,7 @@
 package net.moecraft.nechar;
 
 import static net.sst03.nechar.NecharUtils.contain;
+import static net.vfyjxf.nechar.NechConfig.EnableVoltageSpecialSearchName;
 
 import java.util.regex.Pattern;
 
@@ -22,7 +23,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
     public boolean matches(ItemStack itemStack) {
         String displayName = EnumChatFormatting.getTextWithoutFormattingCodes(itemStack.getDisplayName());
 
-        if (!displayName.isEmpty() && contain(displayName, this.searchText, true)) {
+        if (!displayName.isEmpty() && contain(displayName, this.searchText, EnableVoltageSpecialSearchName)) {
             return true;
         }
 
@@ -31,7 +32,7 @@ public class NecharDisplayFilter extends PatternItemFilter {
                 itemStack.getItem()
                     .getItemStackDisplayName(itemStack));
 
-            if (!displayName.isEmpty() && contain(displayName, this.searchText, true)) {
+            if (!displayName.isEmpty() && contain(displayName, this.searchText, EnableVoltageSpecialSearchName)) {
                 return true;
             }
         }

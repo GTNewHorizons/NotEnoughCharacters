@@ -2,7 +2,6 @@ package net.sst03.nechar;
 
 import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
 import static net.vfyjxf.nechar.NechConfig.EnableIgnoreComma;
-import static net.vfyjxf.nechar.NechConfig.EnableVoltageSpecialSearch;
 
 public class NecharUtils {
 
@@ -62,7 +61,7 @@ public class NecharUtils {
         }
 
         // may be very slow, only try to find 1 voltage level
-        if (!(EnableVoltageSpecialSearch || enableSpecialSearch)) {
+        if (!enableSpecialSearch) {
             return false;
         }
 

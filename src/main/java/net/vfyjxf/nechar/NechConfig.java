@@ -18,7 +18,8 @@ public class NechConfig {
     public static boolean EnableFEng2En = false;
     public static boolean EnableFU2V = false;
     public static boolean EnableIgnoreComma = false;
-    public static boolean EnableVoltageSpecialSearch = false;
+    public static boolean EnableVoltageSpecialSearchName = false;
+    public static boolean EnableVoltageSpecialSearchTooltips = false;
     public static Spell KeyboardType = Spell.QUANPIN;
     public static String[] neiAllowedLanguages = new String[0];
     public static String[] transformerRegExpAdditionalList = new String[0];
@@ -150,11 +151,22 @@ public class NechConfig {
             .get("nei", "allowedLanguages", new String[] { "zh_CN", "zh_TW" }, "List of languages PinIn is used for")
             .getStringList();
         EnableIgnoreComma = config
-            .get("nei", "EnableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
+            .get("search", "EnableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
             .getBoolean();
-        EnableVoltageSpecialSearch = config
-            .get("nei", "EnableVoltageSpecialSearch", false, "!Slow! Set to true to search Voltage names separately")
-            .getBoolean();;
+        EnableVoltageSpecialSearchName = config
+            .get(
+                "search",
+                "EnableVoltageSpecialSearchName",
+                false,
+                "!Slow! Set to true to search Voltage names separately for item names")
+            .getBoolean();
+        EnableVoltageSpecialSearchTooltips = config
+            .get(
+                "search",
+                "EnableVoltageSpecialSearchTooltips",
+                false,
+                "!Slow! Set to true to search Voltage names separately for tooltips")
+            .getBoolean();
 
         if (config.hasChanged()) config.save();
     }
