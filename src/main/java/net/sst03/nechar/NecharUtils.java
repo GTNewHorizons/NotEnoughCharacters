@@ -90,7 +90,7 @@ public class NecharUtils {
             }
 
             int i = 1;// voltage name is like "??v", not "v?"
-            final int l = searchText.length;
+            final int l = searchText.length();
 
             //try to find a voltage name
             while (i < l){
@@ -188,7 +188,7 @@ public class NecharUtils {
                         
                     case 'x' :
 
-                        if (!searchText.charAt(j - 2) == 'u') {
+                        if (searchText.charAt(j - 2) != 'u') {
                             break;
                         }
 
