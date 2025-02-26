@@ -1,7 +1,6 @@
 package net.sst03.nechar;
 
 import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
-
 import static net.vfyjxf.nechar.NechConfig.EnableIgnoreComma;
 import static net.vfyjxf.nechar.NechConfig.EnableVoltageSpecialSearch;
 
@@ -13,19 +12,19 @@ public class NecharUtils {
 
     private static String replaceExtraChars(String str) {
 
-        if (str.contains("\ud872")) {
-            str = str.replaceAll("\ud872\udf3b","\ue900") // 钅卢
-                .replaceAll("\ud872\udf4a","\ue901") // 钅杜
-                .replaceAll("\ud872\udf73","\ue902") // 钅喜
-                .replaceAll("\ud872\udf5b","\ue903") // 钅波
-                .replaceAll("\ud872\udf76","\ue904") // 钅黑
-                .replaceAll("\ud872\udf2d","\ue907"); // 钅仑
+		if (str.contains("\ud872")) {
+			str = str.replaceAll("\ud872\udf3b","\ue900") // 钅卢
+				.replaceAll("\ud872\udf4a","\ue901") // 钅杜
+				.replaceAll("\ud872\udf73","\ue902") // 钅喜
+				.replaceAll("\ud872\udf5b","\ue903") // 钅波
+				.replaceAll("\ud872\udf76","\ue904") // 钅黑
+				.replaceAll("\ud872\udf2d","\ue907"); // 钅仑
         }
 
         if (str.contains("\ud86d")) {
-            str = str.replaceAll("\ud86d\udffc","\ue906") // 钅达
-                .replaceAll("\ud86d\udce7","\ue90a") // 钅夫
-                .replaceAll("\ud86d\udff7","\ue90c"); // 钅仑
+			str = str.replaceAll("\ud86d\udffc","\ue906") // 钅达
+				.replaceAll("\ud86d\udce7","\ue90a") // 钅夫
+				.replaceAll("\ud86d\udff7","\ue90c"); // 钅仑
         }
 
         return str;
@@ -55,7 +54,7 @@ public class NecharUtils {
         if (searchText.contains("max")) {
             sourseText = sourseText.toLowerCase();
 
-            if (!sourseText.contains("max")) { //check if "max" can be found
+            if (!sourseText.contains("max")) { // check if "max" can be found
                 return false;
             }
 
