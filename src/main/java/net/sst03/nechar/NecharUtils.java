@@ -12,19 +12,19 @@ public class NecharUtils {
 
     private static String replaceExtraChars(String str) {
 
-		if (str.contains("\ud872")) {
-			str = str.replaceAll("\ud872\udf3b","\ue900") // 钅卢
-				.replaceAll("\ud872\udf4a","\ue901") // 钅杜
-				.replaceAll("\ud872\udf73","\ue902") // 钅喜
-				.replaceAll("\ud872\udf5b","\ue903") // 钅波
-				.replaceAll("\ud872\udf76","\ue904") // 钅黑
-				.replaceAll("\ud872\udf2d","\ue907"); // 钅仑
+        if (str.contains("\ud872")) {
+            str = str.replaceAll("\ud872\udf3b","\ue900") // 钅卢
+                .replaceAll("\ud872\udf4a","\ue901") // 钅杜
+                .replaceAll("\ud872\udf73","\ue902") // 钅喜
+                .replaceAll("\ud872\udf5b","\ue903") // 钅波
+                .replaceAll("\ud872\udf76","\ue904") // 钅黑
+                .replaceAll("\ud872\udf2d","\ue907"); // 钅仑
         }
 
         if (str.contains("\ud86d")) {
-			str = str.replaceAll("\ud86d\udffc","\ue906") // 钅达
-				.replaceAll("\ud86d\udce7","\ue90a") // 钅夫
-				.replaceAll("\ud86d\udff7","\ue90c"); // 钅仑
+            str = str.replaceAll("\ud86d\udffc","\ue906") // 钅达
+                .replaceAll("\ud86d\udce7","\ue90a") // 钅夫
+                .replaceAll("\ud86d\udff7","\ue90c"); // 钅仑
         }
 
         return str;
@@ -69,7 +69,7 @@ public class NecharUtils {
         } else if (searchText.contains("zpm")) {
             sourseText = sourseText.toLowerCase();
 
-            if (!sourseText.contains("zpm")) { //check if "zpm" can be found
+            if (!sourseText.contains("zpm")) { // check if "zpm" can be found
                 return false;
             }
 
@@ -91,9 +91,9 @@ public class NecharUtils {
             int i = 1;// voltage name is like "??v", not "v?"
             final int l = searchText.length();
 
-            //try to find a voltage name
-            while (i < l){
-                int j = searchText.indexOf('v',i);
+            // try to find a voltage name
+            while (i < l) {
+                int j = searchText.indexOf('v', i);
 
                 if (j == -1) { // cannot find any voltage name
                     return false;
