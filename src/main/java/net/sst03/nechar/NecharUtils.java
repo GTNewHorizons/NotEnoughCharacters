@@ -13,18 +13,18 @@ public class NecharUtils {
     private static String replaceExtraChars(String str) {
 
         if (str.contains("\ud872")) {
-            str = str.replaceAll("\ud872\udf3b","\ue900") // 钅卢
-                .replaceAll("\ud872\udf4a","\ue901") // 钅杜
-                .replaceAll("\ud872\udf73","\ue902") // 钅喜
-                .replaceAll("\ud872\udf5b","\ue903") // 钅波
-                .replaceAll("\ud872\udf76","\ue904") // 钅黑
-                .replaceAll("\ud872\udf2d","\ue907"); // 钅仑
+            str = str.replaceAll("\ud872\udf3b", "\ue900") // 钅卢
+                .replaceAll("\ud872\udf4a", "\ue901") // 钅杜
+                .replaceAll("\ud872\udf73", "\ue902") // 钅喜
+                .replaceAll("\ud872\udf5b", "\ue903") // 钅波
+                .replaceAll("\ud872\udf76", "\ue904") // 钅黑
+                .replaceAll("\ud872\udf2d", "\ue907"); // 钅仑
         }
 
         if (str.contains("\ud86d")) {
-            str = str.replaceAll("\ud86d\udffc","\ue906") // 钅达
-                .replaceAll("\ud86d\udce7","\ue90a") // 钅夫
-                .replaceAll("\ud86d\udff7","\ue90c"); // 钅仑
+            str = str.replaceAll("\ud86d\udffc", "\ue906") // 钅达
+                .replaceAll("\ud86d\udce7", "\ue90a") // 钅夫
+                .replaceAll("\ud86d\udff7", "\ue90c"); // 钅仑
         }
 
         return str;
@@ -100,109 +100,103 @@ public class NecharUtils {
                 }
 
                 i = j + 1;
-                switch(searchText.charAt(j - 1)) { // ulv/umv/uhv/uiv/uev are basicly same
-                    case 'l' :
+                switch (searchText.charAt(j - 1)) { // ulv/umv/uhv/uiv/uev are basicly same
+                    case 'l':
 
-                        if (!(sourseText.contains("lv") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("lv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("ulv") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("ulv")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
 
-                    case 'm' :
+                    case 'm':
 
-                        if (!(sourseText.contains("mv") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("mv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("umv") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("umv")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
 
-                    case 'h' :
+                    case 'h':
 
-                        if (!(sourseText.contains("hv") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("hv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uhv") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uhv")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
 
-                    case 'e' :
+                    case 'e':
 
-                        if (!(sourseText.contains("ev") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("ev") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uev") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uev")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
 
-                    case 'i' :
+                    case 'i':
 
-                        if (!(sourseText.contains("iv") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("iv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uiv") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uiv")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
 
-                    case 'u' :
+                    case 'u':
 
-                        if (!(sourseText.contains("uv") 
-                            || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
+                        if (!(sourseText.contains("uv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
                             return false;
                         }
 
-                        if (searchText.charAt(j - 2) == 'l' && sourseText.contains("luv") 
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2))) {
+                        if (searchText.charAt(j - 2) == 'l' && sourseText.contains("luv")
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
                             return true;
                         }
 
-                        return CONTEXT.contains(sourseText, searchText.substring(0,j - 1));
-                        
-                    case 'x' :
+                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
+
+                    case 'x':
 
                         if (searchText.charAt(j - 2) != 'u') {
                             break;
                         }
 
                         return sourseText.contains("uxv") && CONTEXT.contains(sourseText, searchText.substring(j + 1))
-                            && CONTEXT.contains(sourseText, searchText.substring(0,j - 2));
+                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2));
 
-                    default :
+                    default:
                         break;
                 }
             }
         }
 
         return false;
- 
+
     }
-        //return CONTEXT.contains(sourseText, searchText);
+    // return CONTEXT.contains(sourseText, searchText);
 
 }

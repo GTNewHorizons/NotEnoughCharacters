@@ -149,9 +149,11 @@ public class NechConfig {
         neiAllowedLanguages = config
             .get("nei", "allowedLanguages", new String[] { "zh_CN", "zh_TW" }, "List of languages PinIn is used for")
             .getStringList();
-        EnableIgnoreComma = config.get("nei", "EnableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
+        EnableIgnoreComma = config
+            .get("nei", "EnableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
             .getBoolean();
-        EnableVoltageSpecialSearch = config.get("nei", "EnableVoltageSpecialSearch", false, "!Slow! Set to true to search Voltage names separately")
+        EnableVoltageSpecialSearch = config
+            .get("nei", "EnableVoltageSpecialSearch", false, "!Slow! Set to true to search Voltage names separately")
             .getBoolean();;
 
         if (config.hasChanged()) config.save();
