@@ -62,7 +62,7 @@ public class NecharUtils {
         }
 
         // may be very slow, only try to find 1 voltage level
-        if (!EnableVoltageSpecialSearch) {
+        if (!(EnableVoltageSpecialSearch || enableSpecialSearch)) {
             return false;
         }
 
