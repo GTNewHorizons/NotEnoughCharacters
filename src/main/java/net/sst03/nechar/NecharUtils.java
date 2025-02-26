@@ -72,7 +72,7 @@ public class NecharUtils {
         if (containWithVoltage("zpm", sourseText, searchText) || containWithVoltage("max", sourseText, searchText)) {
             return true;
         }
-        if (!(sourseText.contains('v') || searchText.contains('v'))) {
+        if (!(sourseText.contains("v") || searchText.contains("v"))) {
             return false;
         }
         for (String name : voltageListWithLetterV) {
