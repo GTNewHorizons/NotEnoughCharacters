@@ -19,7 +19,7 @@ public class NecharTooltipFilter extends TooltipFilter {
 
     @Override
     public boolean matches(ItemStack itemStack) {
-        return contain(getSearchTooltip(itemStack), this.searchText) || super.matches(itemStack);
+        return contain(getSearchTooltip(itemStack), this.searchText, false) || super.matches(itemStack);
     }
 
 }

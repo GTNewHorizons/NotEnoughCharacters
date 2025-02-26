@@ -30,14 +30,31 @@ public class NecharUtils {
         return str;
     }
 
-    public static boolean contain(String sourseText, String searchText) {
+    private static boolean containWithVoltage(String voltage, String sourseText, String searchText) {
+        if (!searchText.contains(voltage)) {
+            return false;
+        }
+        if (!sourseText.contains(voltage)) {
+            return false;
+        } // check if [voltage] can be found
+        String[] sList = searchText.split(voltage, 2); // check if texts between "max" can be found
+        if (sList.length == 2 && !CONTEXT.contains(sourseText, sList[1])) {
+            return false;
+        }
+        return CONTEXT.contains(sourseText, sList[0]);
+    }
 
-        searchText = replaceExtraChars(searchText);
+    private static String[] voltageListWithLetterV = { "ulv", "lv", "mv", "hv", "ev", "iv", "luv", "uv", "uhv", "uev",
+        "uiv", "umv", "uxv" };
+
+    public static boolean contain(String sourseText, String searchText, Boolean enableSpecialSearch) {
+
         sourseText = replaceExtraChars(sourseText);
+        searchText = replaceExtraChars(searchText);
 
         if (EnableIgnoreComma && !searchText.contains(",")) {
-            searchText = deleteComma(searchText);
             sourseText = deleteComma(sourseText);
+            searchText = deleteComma(searchText);
         }
 
         if (CONTEXT.contains(sourseText, searchText)) {
@@ -49,153 +66,21 @@ public class NecharUtils {
             return false;
         }
 
+        sourseText = sourseText.toLowerCase();
         searchText = searchText.toLowerCase();
 
-        if (searchText.contains("max")) {
-            sourseText = sourseText.toLowerCase();
-
-            if (!sourseText.contains("max")) { // check if "max" can be found
-                return false;
-            }
-
-            String[] sList = searchText.split("max"); // check if texts between "max" can be found
-
-            if (sList.length == 2 && !CONTEXT.contains(sourseText, sList[1])) {
-                return false;
-            }
-
-            return CONTEXT.contains(sourseText, sList[0]);
-
-        } else if (searchText.contains("zpm")) {
-            sourseText = sourseText.toLowerCase();
-
-            if (!sourseText.contains("zpm")) { // check if "zpm" can be found
-                return false;
-            }
-
-            String[] sList = searchText.split("zpm"); // check if texts between "zpm" can be found
-
-            if (sList.length == 2 && !CONTEXT.contains(sourseText, sList[1])) {
-                return false;
-            }
-
-            return CONTEXT.contains(sourseText, sList[0]);
-
-        } else if (searchText.contains("v")) {
-            sourseText = sourseText.toLowerCase();
-
-            if (!sourseText.contains("v")) {
-                return false;
-            }
-
-            int i = 1;// voltage name is like "??v", not "v?"
-            final int l = searchText.length();
-
-            // try to find a voltage name
-            while (i < l) {
-                int j = searchText.indexOf('v', i);
-
-                if (j == -1) { // cannot find any voltage name
-                    return false;
-                }
-
-                i = j + 1;
-                switch (searchText.charAt(j - 1)) { // ulv/umv/uhv/uiv/uev are basicly same
-                    case 'l':
-
-                        if (!(sourseText.contains("lv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("ulv")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'm':
-
-                        if (!(sourseText.contains("mv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("umv")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'h':
-
-                        if (!(sourseText.contains("hv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uhv")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'e':
-
-                        if (!(sourseText.contains("ev") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uev")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'i':
-
-                        if (!(sourseText.contains("iv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'u' && sourseText.contains("uiv")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'u':
-
-                        if (!(sourseText.contains("uv") || CONTEXT.contains(sourseText, searchText.substring(j + 1)))) {
-                            return false;
-                        }
-
-                        if (searchText.charAt(j - 2) == 'l' && sourseText.contains("luv")
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2))) {
-                            return true;
-                        }
-
-                        return CONTEXT.contains(sourseText, searchText.substring(0, j - 1));
-
-                    case 'x':
-
-                        if (searchText.charAt(j - 2) != 'u') {
-                            break;
-                        }
-
-                        return sourseText.contains("uxv") && CONTEXT.contains(sourseText, searchText.substring(j + 1))
-                            && CONTEXT.contains(sourseText, searchText.substring(0, j - 2));
-
-                    default:
-                        break;
-                }
+        if (containWithVoltage("zpm", sourseText, searchText) || containWithVoltage("max", sourseText, searchText)) {
+            return true;
+        }
+        if (!(sourseText.contains('v') || searchText.contains('v'))) {
+            return false;
+        }
+        for (String name : voltageListWithLetterV) {
+            if (containWithVoltage(name, sourseText, searchText)) {
+                return true;
             }
         }
-
         return false;
-
     }
     // return CONTEXT.contains(sourseText, searchText);
 
