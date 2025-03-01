@@ -1,7 +1,7 @@
 package net.moecraft.nechar;
 
-import static net.sst03.nechar.NecharUtils.contain;
-import static net.vfyjxf.nechar.NechConfig.EnableVoltageSpecialSearchTooltips;
+import static net.moecraft.nechar.NecharUtils.contain;
+import static net.vfyjxf.nechar.NechConfig.enableVoltageSpecialSearchTooltips;
 
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ public class NecharTooltipFilter extends TooltipFilter {
 
     @Override
     public boolean matches(ItemStack itemStack) {
-        return contain(getSearchTooltip(itemStack), this.searchText, EnableVoltageSpecialSearchTooltips)
+        return contain(getSearchTooltip(itemStack), this.searchText, enableVoltageSpecialSearchTooltips)
             || super.matches(itemStack);
     }
 

@@ -17,9 +17,9 @@ public class NechConfig {
     public static boolean EnableFIng2In = false;
     public static boolean EnableFEng2En = false;
     public static boolean EnableFU2V = false;
-    public static boolean EnableIgnoreComma = false;
-    public static boolean EnableVoltageSpecialSearchName = false;
-    public static boolean EnableVoltageSpecialSearchTooltips = false;
+    public static boolean enableIgnoreComma = false;
+    public static boolean enableVoltageSpecialSearchName = false;
+    public static boolean enableVoltageSpecialSearchTooltips = false;
     public static Spell KeyboardType = Spell.QUANPIN;
     public static String[] neiAllowedLanguages = new String[0];
     public static String[] transformerRegExpAdditionalList = new String[0];
@@ -150,20 +150,20 @@ public class NechConfig {
         neiAllowedLanguages = config
             .get("nei", "allowedLanguages", new String[] { "zh_CN", "zh_TW" }, "List of languages PinIn is used for")
             .getStringList();
-        EnableIgnoreComma = config
-            .get("search", "EnableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
+        enableIgnoreComma = config
+            .get("search", "enableIgnoreComma", false, "Set to true to enable ignore comma between numbers")
             .getBoolean();
-        EnableVoltageSpecialSearchName = config
+        enableVoltageSpecialSearchName = config
             .get(
                 "search",
-                "EnableVoltageSpecialSearchName",
+                "enableVoltageSpecialSearchName",
                 false,
                 "!Slow! Set to true to search Voltage names separately for item names")
             .getBoolean();
-        EnableVoltageSpecialSearchTooltips = config
+        enableVoltageSpecialSearchTooltips = config
             .get(
                 "search",
-                "EnableVoltageSpecialSearchTooltips",
+                "enableVoltageSpecialSearchTooltips",
                 false,
                 "!Slow! Set to true to search Voltage names separately for tooltips")
             .getBoolean();

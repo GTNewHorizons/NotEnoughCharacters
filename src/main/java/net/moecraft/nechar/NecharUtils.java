@@ -1,7 +1,7 @@
-package net.sst03.nechar;
+package net.moecraft.nechar;
 
 import static net.moecraft.nechar.NotEnoughCharacters.CONTEXT;
-import static net.vfyjxf.nechar.NechConfig.EnableIgnoreComma;
+import static net.vfyjxf.nechar.NechConfig.enableIgnoreComma;
 
 public class NecharUtils {
 
@@ -51,7 +51,7 @@ public class NecharUtils {
         sourseText = replaceExtraChars(sourseText);
         searchText = replaceExtraChars(searchText);
 
-        if (EnableIgnoreComma && !searchText.contains(",")) {
+        if (enableIgnoreComma && !searchText.contains(",")) {
             sourseText = deleteComma(sourseText);
             searchText = deleteComma(searchText);
         }
