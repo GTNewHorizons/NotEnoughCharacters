@@ -35,5 +35,5 @@
  */
 dependencies {
     shadowImplementation("com.github.Towdium:PinIn:1.6.0")
-    devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.6.38-GTNH:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.30-GTNH:dev")
 }
