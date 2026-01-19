@@ -88,13 +88,12 @@ public class NechConfig {
             .get("DefaultTransformerString")
             .set(defaultTransformerStringList);
 
-        transformerRegExpAdditionalList = config
-            .get(
-                "transformers",
-                "AdditionalTransformerRegExpList",
-                new String[0],
-                "Additional list of methods to transform, of which uses regular expression to match (Pattern.matcher or String.matches).\n"
-                    + "The format is \"full.class.path$InnerClass:methodName\"")
+        transformerRegExpAdditionalList = config.get(
+            "transformers",
+            "AdditionalTransformerRegExpList",
+            new String[0],
+            "Additional list of methods to transform, of which uses regular expression to match (Pattern.matcher or String.matches).\n"
+                + "The format is \"full.class.path$InnerClass:methodName\"")
             .getStringList();
 
         transformerStringAdditionalList = config
