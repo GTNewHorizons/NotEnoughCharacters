@@ -1,9 +1,7 @@
 package net.moecraft.nechar;
 
-import java.io.File;
 import java.util.function.BiConsumer;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.vfyjxf.nechar.NechCommand;
 import net.vfyjxf.nechar.NechConfig;
@@ -81,7 +79,6 @@ public class NotEnoughCharacters {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger.info("Not Enough Characters - v" + VERSION);
-        NechConfig.loadConfig(new File(Minecraft.getMinecraft().mcDataDir, "config/NotEnoughCharacters.cfg"));
         onConfigChange();
     }
 
